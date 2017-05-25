@@ -1,12 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <title>DOM &amp; BOM</title>
 </head>
+
 <body>
-  
+  <main class="main">
+    <div class="row valign-wrapper">
+      <ul id="task-list" class="tabs col s3">
+        <li class="tab"><a class="active cyan-text text-lighten-2" href="#task1">Task "validation".</a></li>
+        <li class="tab"><a class="cyan-text text-lighten-2" href="#task2">Task "parallax".</a></li>
+        <li class="tab"><a class="cyan-text text-lighten-2" href="#task3">Task "os message".</a></li>
+        <li class="tab"><a class="cyan-text text-lighten-2" href="#task4">Task "localization".</a></li>
+        <li class="tab"><a class="cyan-text text-lighten-2" href="#task5">Task "stop &amp; prevent events".</a></li>
+        <li class="tab"><a class="cyan-text text-lighten-2" href="#task6">Task "player navigation"</a></li>
+        <li class="tab"><a class="cyan-text text-lighten-2" href="#task7">Task "list of users"</a></li>
+      </ul>
+      <div id="task1" class="col s9">
+        <h2 class="center-align">Implement validation for form</h2>
+        <form name="login" action="#">
+          <div class="input-field col s8 offset-s2">
+            <i class="material-icons prefix">perm_identity</i>
+            <input id="age" type="text" name="age" class="validate-input">
+            <label for="age">Age</label>
+          </div>
+          <div class="input-field col s8 offset-s2">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="username" type="text" name="username" class="validate-input">
+            <label for="username">Username</label>
+          </div>
+          <div class="input-field col s8 offset-s2">
+            <i class="material-icons prefix">today</i>
+            <input id="date" type="text" name="date" class="validate-input" placeholder="dd/mm/yyyy">
+            <label for="date">Date</label>
+          </div>
+          <div class="input-field col s8 offset-s2">
+            <input id="date" type="submit" class="btn" value="Validate Me">
+          </div>
+        </form>
+      </div>
+      <div id="task2" class="col s9">
+        <h2 class="center-align">Fix parallax</h2>
+        <script async src="https://jsfiddle.net/rostik_moroziuk/g2wkha1u/72/embed/"></script>
+      </div>
+      <div id="task3" class="col s9">
+        <h2 class="center-align">Show message per user's system</h2>
+      </div>
+      <div id="task4" class="col s9">
+        <h2 class="center-align">Create multi-local app</h2>
+      </div>
+      <div id="task5" class="col s9">
+        <h2 class="center-align">What is difference between event.stopPropagation and event.preventDefault</h2>
+      </div>
+      <div id="task6" class="col s9">
+        <h2 class="center-align">Fix the player navigation</h2>
+      </div>
+      <div id="task7" class="col s9">
+        <h2 class="center-align">Create the dynamic list of employees on the factory</h2>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
+
 </html>
