@@ -385,7 +385,23 @@ function fireControl(el, timer) {
   clearInterval(timer);
 }
 
+function emploeeNumber() {
+  var count = document.querySelector(".employeeList").childElementCount;
+  document.querySelector(".number .value").innerText = count - 1;//first element - caption
+}
+
+function avarageSalary() {
+  var salaries = document.querySelectorAll(".employeeSalary");
+  var salarySum = 0;
+  for(var i=0; i<salaries.length; i++) {
+    salarySum += parseInt(salaries[i].innerText.slice(2), 10);
+  }
+  document.querySelector(".avarageSalary .value").innerText = salarySum/(salaries.length) + "$";
+}
+
 addEvent();
+emploeeNumber();
+avarageSalary();
 //for select field
 $(document).ready(function () {
   $('select').material_select();

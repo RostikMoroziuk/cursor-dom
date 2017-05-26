@@ -37,10 +37,10 @@
           <a href="#"></a>
         </li>
         <li class="tab">
-          <a class="active cyan-text text-lighten-2" href="#task6"></a>
+          <a class="cyan-text text-lighten-2" href="#task6"></a>
         </li>
         <li class="tab">
-          <a class="cyan-text text-lighten-2" href="#task7"></a>
+          <a class="active cyan-text text-lighten-2" href="#task7"></a>
         </li>
       </ul>
       <div id="task1" class="col s10">
@@ -146,11 +146,36 @@
             <div id="player">
             </div>
           </div>
-          <p class="text">FIRE: space<br> LEFT: &larr;<br> UP: &uarr;<br> RIGHT: &rarr;<br> DOWN: &darr;<br></p>
+          <p class="text"><span class="cyan lighten-4">FIRE:</span> space<br><span class="cyan lighten-4">LEFT:</span> &larr;<br><span class="cyan lighten-4">UP:</span>            &uarr;<br><span class="cyan lighten-4">RIGHT:</span> &rarr;<br><span class="cyan lighten-4">DOWN:</span> &darr;<br></p>
         </div>
       </div>
       <div id="task7" class="col s10">
         <h2 class="center-align">Create the dynamic list of employees on the factory</h2>
+        <div class="center-align col s8 offset-s2">
+          <ul class="employeeList">
+            <li class="caption">
+              <span>First name</span>
+              <span>Last name</span>
+              <span>Salary</span>
+              <span>Position</span>
+            </li>
+            <li class="listItem">
+              <span class="employeeFirstName">John</span>
+              <span class="employeeLastName">Doe</span>
+              <span class="employeeSalary">$ 1000</span>
+              <span class="employeePosition">Manager</span>
+            </li>
+          </ul>
+          <div class="listControl">
+            <button class="addEmployee btn">Add New emplyee</button>
+            <div class="control">
+              <div class="number">Number: <span class="value"></span></div>
+              <div class="avarageSalary">Avarage salary: <span class="value"></span></div>
+              <p class="range-field">Set limit: <input type="range" id="limit" min="1" max="100" />
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>

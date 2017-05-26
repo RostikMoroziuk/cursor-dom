@@ -116,3 +116,54 @@ a:hover.cyan-text.text-lighten-2 {
   display: none;
 }
 
+.employeeList {
+  list-style-type: none;
+  list-style-position: inside;
+  margin-bottom: 20px;
+}
+
+.listItem,
+.caption {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listItem {
+  font-size: 1.2em;
+}
+
+.listItem span,
+.caption span {
+  flex-basis: 24%;
+  padding: 20px 0;
+}
+
+.caption {
+  font-size: 1.4em;
+  font-weight: 700;
+  border-bottom: 1px solid #006064;
+}
+
+.employeeList li:nth-child(2n) {
+  background-color: #e0f7fa;
+}
+
+.listControl {
+  display: flex;
+  justify-content: space-between;
+}
+
+.addEmployee {
+  flex-basis: 35%;
+}
+
+.control {
+  flex-basis: 55%;
+  text-align: left;
+  font-size: 1.2em;
+}
+
+/*.range-field input {
+  width: 70%;
+}*/
+
