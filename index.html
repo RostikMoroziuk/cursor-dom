@@ -31,10 +31,13 @@
           <a class="cyan-text text-lighten-2" href="#task4"></a>
         </li>
         <li class="tab">
-          <a class="active cyan-text text-lighten-2" href="#task5"></a>
+          <a class="cyan-text text-lighten-2" href="#task5"></a>
+        </li>
+        <li class="tab disabled">
+          <a href="#"></a>
         </li>
         <li class="tab">
-          <a class="cyan-text text-lighten-2" href="#task6"></a>
+          <a class="active cyan-text text-lighten-2" href="#task6"></a>
         </li>
         <li class="tab">
           <a class="cyan-text text-lighten-2" href="#task7"></a>
@@ -128,13 +131,23 @@
         <div class="col s8 offset-s2">
           <iframe width="100%" height="300" src="https://jsfiddle.net/rostik_moroziuk/b32ewas2/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen"
             frameborder="0"></iframe>
-          <p class="text">preventDefault() method use for prevent default event for target element such as visit link on click
-            on a element. The default action will not occur.
+          <p class="text">preventDefault() method use for prevent default event for target element such as visit link on click on a element.
+            The default action will not occur.
           </p>
         </div>
       </div>
       <div id="task6" class="col s10">
         <h2 class="center-align">Fix the player navigation</h2>
+        <div class="center-align">
+          <button class="btn" id="start-game">Click to start</button>
+        </div>
+        <div class="play-field">
+          <div id="play-ground">
+            <div id="player">
+            </div>
+          </div>
+          <p>Fire: space<br> LEFT: &larr;<br> UP: &uarr;<br> RIGHT: &rarr;<br> DOWN: &darr;<br></p>
+        </div>
       </div>
       <div id="task7" class="col s10">
         <h2 class="center-align">Create the dynamic list of employees on the factory</h2>

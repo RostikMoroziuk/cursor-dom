@@ -17,7 +17,8 @@ function addEvent() {
   }
 
   //select language after loading page
-  addEventListener("load", selectLanguage);
+  //TODO: enable it!!!
+  // addEventListener("load", selectLanguage);
   //Change language on change radio button
   var languages = document.querySelectorAll("input[name='lang']");
   for (i = 0; i < languages.length; i++) {
@@ -26,6 +27,14 @@ function addEvent() {
 
   document.querySelector("form").onsubmit = validateAll; //select first form
   document.getElementById("save").addEventListener("click", saveLang);
+  document.getElementById("start-game").addEventListener("click", playerNavigation); //task 6
+  document.getElementById("play-ground").addEventListener("keydown", playerMove);;
+}
+
+//change focus on play-ground
+function setFocus(e) {
+  var tabind = document.querySelector("#play-ground");
+  tabind.setAttribute("tabindex", "-1");
 }
 
 //Validate age on input
@@ -114,8 +123,9 @@ var applyLanguage = function (lang) {
       navigationList[2].innerText = 'Task "os message"';
       navigationList[3].innerText = 'Task "localization"';
       navigationList[4].innerText = 'Task "stop & prevent events"';
-      navigationList[5].innerText = 'Task "player navigation"';
-      navigationList[6].innerText = 'Task "list of users"';
+      navigationList[5].innerText = 'Additional tasks';
+      navigationList[6].innerText = 'Task "player navigation"';
+      navigationList[7].innerText = 'Task "list of users"';
       break;
     case "ru":
       navigationList[0].innerText = 'Задание "validation"';
@@ -123,8 +133,9 @@ var applyLanguage = function (lang) {
       navigationList[2].innerText = 'Задание "os message"';
       navigationList[3].innerText = 'Задание "localization"';
       navigationList[4].innerText = 'Задание "stop & prevent events"';
-      navigationList[5].innerText = 'Задание "player navigation"';
-      navigationList[6].innerText = 'Задание "list of users"';
+      navigationList[5].innerText = 'Дополнительние задания';
+      navigationList[6].innerText = 'Задание "player navigation"';
+      navigationList[7].innerText = 'Задание "list of users"';
       break;
     case "ua":
       navigationList[0].innerText = 'Завдання "validation"';
@@ -132,8 +143,9 @@ var applyLanguage = function (lang) {
       navigationList[2].innerText = 'Завдання "os message"';
       navigationList[3].innerText = 'Завдання "localization"';
       navigationList[4].innerText = 'Завдання "stop & prevent events"';
-      navigationList[5].innerText = 'Завдання "player navigation"';
-      navigationList[6].innerText = 'Завдання "list of users"';
+      navigationList[5].innerText = 'Додаткові завдання';
+      navigationList[6].innerText = 'Завдання "player navigation"';
+      navigationList[7].innerText = 'Завдання "list of users"';
       break;
   }
 }
@@ -182,7 +194,7 @@ function selectLanguage() {
   function restoreLanguage() {
     //Try get language from cookie
     var storeLanguage = getCookie("language");
-    if(!storeLanguage.length) { //if cookie did not found try get from local storage
+    if (!storeLanguage.length) { //if cookie did not found try get from local storage
       storeLanguage = localStorage.getItem("language");
     }
     return storeLanguage;
@@ -247,6 +259,64 @@ function saveLang() {
       localStorage.clear();
       localStorage.setItem("language", document.querySelector(".check-language[data-check=true]").id);
       alert("Data saved");
+  }
+}
+
+function playerNavigation() {
+  //hide button
+  this.style.display = "none";
+
+  //show playground
+  var playGround = document.getElementById("play-ground");
+  playGround.style.display = "block";
+
+  var player = document.getElementById("player");
+  player.style.left = "0px";
+  player.style.top = "0px";
+  setFocus();
+}
+
+function playerMove(e) {
+  var KEYCODE_LEFT = 37;
+  var KEYCODE_RIGHT = 39;
+  var KEYCODE_UP = 38;
+  var KEYCODE_DOWN = 40;
+
+  //this - play-ground
+  var player = document.getElementById("player");
+
+  var position;
+
+  switch (e.keyCode) {
+    case KEYCODE_LEFT:
+      position = parseInt(player.style.left);
+      player.style.left = (position - 10) + 'px';
+      if (position < 0) {
+        player.style.left = this.clientWidth - 20 + 'px';
+      }
+      break;
+    case KEYCODE_UP:
+      position = parseInt(player.style.top);
+      player.style.top = (position - 10) + 'px';
+      if (position < 0) {
+        player.style.top = this.clientHeight - 20 + 'px';
+      }
+      break;
+    case KEYCODE_RIGHT:
+      position = parseInt(player.style.left);
+      player.style.left = (position + 10) + 'px'
+      if (position + 10 > this.clientWidth) {
+        player.style.left = 0 + 'px';
+      }
+      break;
+    case KEYCODE_DOWN:
+      position = parseInt(player.style.top);
+      player.style.top = (position + 10) + 'px';
+      if (position + 10 > this.clientHeight) {
+        player.style.top = 0 + 'px';
+      }
+      break;
+    
   }
 }
 

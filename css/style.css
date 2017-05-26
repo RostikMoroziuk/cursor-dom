@@ -80,3 +80,31 @@ a:hover.cyan-text.text-lighten-2 {
   margin-bottom: 25px;
 }
 
+#play-ground {
+  width: 80%;
+  height: 400px;
+  border: 1px solid #006064;
+  display: none;
+  position: relative;
+}
+
+#player {
+  width: 20px;
+  height: 20px;
+  background-color: #006064;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transition: .1s ease-out;
+}
+
+.fire {
+  position: absolute;
+}
+
+.play-field {
+  display: flex;
+  justify-content: space-around;
+}
+
