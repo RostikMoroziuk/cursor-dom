@@ -1,3 +1,6 @@
+var _previousKey = 39; //right
+var _fireMoveTimer;
+
 //Add events
 function addEvent() {
   var i; //counter
@@ -270,6 +273,8 @@ function playerNavigation() {
   var playGround = document.getElementById("play-ground");
   playGround.style.display = "block";
 
+  document.querySelector("#task6 .text").style.display = "block";
+
   var player = document.getElementById("player");
   player.style.left = "0px";
   player.style.top = "0px";
@@ -281,6 +286,7 @@ function playerMove(e) {
   var KEYCODE_RIGHT = 39;
   var KEYCODE_UP = 38;
   var KEYCODE_DOWN = 40;
+  var KEYCODE_SPACE = 32;
 
   //this - play-ground
   var player = document.getElementById("player");
@@ -294,6 +300,7 @@ function playerMove(e) {
       if (position < 0) {
         player.style.left = this.clientWidth - 20 + 'px';
       }
+      _previousKey = KEYCODE_LEFT;
       break;
     case KEYCODE_UP:
       position = parseInt(player.style.top);
@@ -301,23 +308,81 @@ function playerMove(e) {
       if (position < 0) {
         player.style.top = this.clientHeight - 20 + 'px';
       }
+      _previousKey = KEYCODE_UP;
       break;
     case KEYCODE_RIGHT:
       position = parseInt(player.style.left);
       player.style.left = (position + 10) + 'px'
-      if (position + 10 > this.clientWidth) {
+      if (position + 20 > this.clientWidth) {
         player.style.left = 0 + 'px';
       }
+      _previousKey = KEYCODE_RIGHT;
       break;
     case KEYCODE_DOWN:
       position = parseInt(player.style.top);
       player.style.top = (position + 10) + 'px';
-      if (position + 10 > this.clientHeight) {
+      if (position + 20 > this.clientHeight) {
         player.style.top = 0 + 'px';
       }
+      _previousKey = KEYCODE_DOWN;
       break;
-    
+    case KEYCODE_SPACE:
+      var fire = document.createElement("div");
+      fire.className = "fire";
+      console.log("top " + player.style.top);
+      console.log("left " + player.style.left);
+      fire.style.top = player.style.top;
+      fire.style.left = player.style.left;
+      this.appendChild(fire);
+      //Move fire
+      _fireMoveTimer = setInterval(fireMove, 30, _previousKey, fire);
+      //Clear from DOM
+      setTimeout(fireControl, 3000, fire, _fireMoveTimer);
   }
+}
+
+function fireMove(direction, element) {
+  var KEYCODE_LEFT = 37;
+  var KEYCODE_RIGHT = 39;
+  var KEYCODE_UP = 38;
+  var KEYCODE_DOWN = 40;
+  switch (direction) {
+    case KEYCODE_LEFT:
+      position = parseInt(element.style.left);
+      element.style.left = (position - 10) + 'px';
+      if (position < 0) {
+        element.style.display = "none";
+      }
+      break;
+    case KEYCODE_UP:
+      position = parseInt(element.style.top);
+      element.style.top = (position - 10) + 'px';
+      if (position < 0) {
+        element.style.display = "none";
+      }
+      break;
+    case KEYCODE_RIGHT:
+      var outer = document.getElementById("play-ground");
+      position = parseInt(element.style.left);
+      element.style.left = (position + 10) + 'px'
+      if (position + 20 > outer.clientWidth) {
+        element.style.display = "none";
+      }
+      break;
+    case KEYCODE_DOWN:
+      var outer = document.getElementById("play-ground");
+      position = parseInt(element.style.top);
+      element.style.top = (position + 10) + 'px';
+      if (position + 20 > outer.clientHeight) {
+        element.style.display = "none";
+      }
+      break;
+  }
+}
+
+function fireControl(el, timer) {
+  el.parentNode.removeChild(el);
+  clearInterval(timer);
 }
 
 addEvent();

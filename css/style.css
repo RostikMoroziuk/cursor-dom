@@ -101,10 +101,18 @@ a:hover.cyan-text.text-lighten-2 {
 
 .fire {
   position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #4dd0e1;
 }
 
 .play-field {
   display: flex;
   justify-content: space-around;
+}
+
+#task6 .text {
+  display: none;
 }
 
