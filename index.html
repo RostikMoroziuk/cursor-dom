@@ -18,47 +18,106 @@
   <main class="main">
     <div class="row valign-wrapper">
       <ul id="task-list" class="tabs col s3">
-        <li class="tab"><a class="active cyan-text text-lighten-2" href="#task1">Task "validation".</a></li>
-        <li class="tab"><a class="cyan-text text-lighten-2" href="#task2">Task "parallax".</a></li>
-        <li class="tab"><a class="cyan-text text-lighten-2" href="#task3">Task "os message".</a></li>
-        <li class="tab"><a class="cyan-text text-lighten-2" href="#task4">Task "localization".</a></li>
-        <li class="tab"><a class="cyan-text text-lighten-2" href="#task5">Task "stop &amp; prevent events".</a></li>
-        <li class="tab"><a class="cyan-text text-lighten-2" href="#task6">Task "player navigation"</a></li>
-        <li class="tab"><a class="cyan-text text-lighten-2" href="#task7">Task "list of users"</a></li>
+        <li class="tab">
+          <a class="cyan-text text-lighten-2" href="#task1"></a>
+        </li>
+        <li class="tab">
+          <a class="cyan-text text-lighten-2" href="#task2"></a>
+        </li>
+        <li class="tab">
+          <a class="cyan-text text-lighten-2" href="#task3"></a>
+        </li>
+        <li class="tab">
+          <a class="active cyan-text text-lighten-2" href="#task4"></a>
+        </li>
+        <li class="tab">
+          <a class="cyan-text text-lighten-2" href="#task5"></a>
+        </li>
+        <li class="tab">
+          <a class="cyan-text text-lighten-2" href="#task6"></a>
+        </li>
+        <li class="tab">
+          <a class="cyan-text text-lighten-2" href="#task7"></a>
+        </li>
       </ul>
       <div id="task1" class="col s9">
         <h2 class="center-align">Implement validation for form</h2>
-        <form name="login" action="#">
-          <div class="input-field col s8 offset-s2">
-            <i class="material-icons prefix">perm_identity</i>
-            <input id="age" type="text" name="age" class="validate-input">
-            <label for="age">Age</label>
-          </div>
-          <div class="input-field col s8 offset-s2">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="username" type="text" name="username" class="validate-input">
-            <label for="username">Username</label>
-          </div>
-          <div class="input-field col s8 offset-s2">
-            <i class="material-icons prefix">today</i>
-            <input id="date" type="text" name="date" class="validate-input" placeholder="dd/mm/yyyy">
-            <label for="date">Date</label>
-          </div>
-          <div class="input-field col s8 offset-s2">
-            <input id="date" type="submit" class="btn" value="Validate Me">
-          </div>
-        </form>
+        <div class="valign-wrapper">
+          <form name="login" action="#">
+            <div class="input-field col s8 offset-s2">
+              <i class="material-icons prefix">perm_identity</i>
+              <input id="age" type="text" name="age" class="validate-input">
+              <label for="age">Age</label>
+            </div>
+            <div class="input-field col s8 offset-s2">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="username" type="text" name="username" class="validate-input">
+              <label for="username">Username</label>
+            </div>
+            <div class="input-field col s8 offset-s2">
+              <i class="material-icons prefix">today</i>
+              <input id="date" type="text" name="date" class="validate-input" placeholder="dd/mm/yyyy">
+              <label for="date">Date</label>
+            </div>
+            <div class="input-field col s8 offset-s2">
+              <input id="date" type="submit" class="btn" value="Validate Me">
+            </div>
+          </form>
+        </div>
       </div>
       <div id="task2" class="col s9">
         <h2 class="center-align">Fix parallax</h2>
-        <script async src="https://jsfiddle.net/rostik_moroziuk/g2wkha1u/72/embed/"></script>
+        <div class="wrapper">
+          <div class="col s8 offset-s2">
+            <iframe width="100%" height="300" src="https://jsfiddle.net/rostik_moroziuk/g2wkha1u/72/embedded/js,html,css,result/dark/"
+              allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+          </div>
+        </div>
       </div>
       <div id="task3" class="col s9">
         <h2 class="center-align">Show message per user's system</h2>
+        <div class="wrapper">
+          <div class="col s8 offset-s2">
+            <iframe width="100%" height="300" src="https://jsfiddle.net/rostik_moroziuk/snsyLb3a/56/embedded/js,html,css,result/dark/"
+              allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+          </div>
+        </div>
       </div>
       <div id="task4" class="col s9">
         <h2 class="center-align">Create multi-local app</h2>
+        <div class="center-align">
+          <div id="languages">
+            <!--TODO: add id-->
+            <input type="radio" name="lang" id="ua" class="check-language">
+            <label for="ua">UA</label>
+            <input type="radio" name="lang" id="ru" class="check-language">
+            <label for="ru">RU</label>
+            <input type="radio" name="lang" id="en" class="check-language">
+            <label for="en">EN</label>
+          </div>
+          <div id="welcome-message">
+            <span class="lang lang-ua">Привіт</span>
+            <!--
+            --><span class="lang lang-ru">Привет</span>
+            <!--
+            --><span class="lang lang-en">Hello</span>
+            <span class="lang lang-ua">Раді тебе бачити!</span>
+          </div>
+          <div class="row">
+            <div class="input-field col s4 offset-s4">
+              <select id="savePlace">
+                <option value="cookie">cookie</option>
+                <option value="localStorage">localStorage</option>
+              </select>
+              <label>Where is saved current language</label>
+            </div>
+          </div>
+          <div class="row">
+            <button id="save" class="btn">Save</button>
+          </div>
+        </div>
       </div>
+
       <div id="task5" class="col s9">
         <h2 class="center-align">What is difference between event.stopPropagation and event.preventDefault</h2>
       </div>

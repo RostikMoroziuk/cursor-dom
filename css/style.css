@@ -38,9 +38,8 @@ a.active {
   border-bottom: 2px solid #4dd0e1;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
+a:hover.cyan-text.text-lighten-2 {
+  color: #006064 !important;
 }
 
 #task1,
@@ -51,17 +50,28 @@ a.active {
 #task6,
 #task7 {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .main h2 {
   font-size: 2.1rem;
+  margin-bottom: 50px;
 }
 
-#task1 form {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.lang {
+  display: none;
 }
+
+.lang.visible {
+  display: inline;
+}
+
+#languages,
+#welcome-message,
+.input-fiald {
+  margin-bottom: 40px;
+}
+
+#welcome-message {
+  font-size: 1.7rem;
+}
+
