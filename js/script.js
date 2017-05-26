@@ -138,7 +138,7 @@ var applyLanguage = function (lang) {
   }
 }
 
-//Show greeting msg
+//Show greeting msg execute only one number!!!!
 function showGreeting(currentLang) {
   var i; //counter
   var langEls = document.getElementsByClassName('lang-' + currentLang);
@@ -213,12 +213,17 @@ function selectLanguage() {
     applyLanguage(currentLang);
   }
   //check radio with current language
+  document.getElementById(currentLang).setAttribute("data-check", "true");
   document.getElementById(currentLang).setAttribute("checked", "checked");
 }
 
+//Execute all time when user change language
 function changeLanguage() {
   var curLanguage = this.id;
   applyLanguage(curLanguage);
+  //delete check from previous language
+  document.querySelector(".check-language[data-check=true]").setAttribute("data-check", "false");
+  document.getElementById(curLanguage).setAttribute("data-check", "true");
 }
 
 //Save current language in cookie or localStorage for restoring in future
@@ -231,7 +236,7 @@ function saveLang() {
         //Delete old language cookie
         document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
         //Set new cookie
-        document.cookie = "language=" + document.querySelector(".check-language[checked]").id;
+        document.cookie = "language=" + document.querySelector(".check-language[data-check=true]").id;
         alert("Data saved");
       } else {
         alert("You can not save in cookie. Enable cookie please");
@@ -240,7 +245,7 @@ function saveLang() {
     case "localStorage":
       //Delete old data
       localStorage.clear();
-      localStorage.setItem("language", document.querySelector(".check-language[checked]").id);
+      localStorage.setItem("language", document.querySelector(".check-language[data-check=true]").id);
       alert("Data saved");
   }
 }
