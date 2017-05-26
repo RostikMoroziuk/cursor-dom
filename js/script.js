@@ -151,7 +151,7 @@ function showGreeting(currentLang) {
   for (i = 0; i < langEls.length; i++) {
     var langEl = langEls[i];
     langEl.classList.add('visible');
-    langEl.innerText += " " + document.getElementById("username").value + ".";
+    document.querySelector(".user").innerText = (document.getElementById("username").value || "username") + ".";
   }
 }
 

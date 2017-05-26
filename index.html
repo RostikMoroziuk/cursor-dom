@@ -17,7 +17,7 @@
 <body>
   <main class="main">
     <div class="row valign-wrapper">
-      <ul id="task-list" class="tabs col s3">
+      <ul id="task-list" class="tabs col s2">
         <li class="tab">
           <a class="cyan-text text-lighten-2" href="#task1"></a>
         </li>
@@ -28,10 +28,10 @@
           <a class="cyan-text text-lighten-2" href="#task3"></a>
         </li>
         <li class="tab">
-          <a class="active cyan-text text-lighten-2" href="#task4"></a>
+          <a class="cyan-text text-lighten-2" href="#task4"></a>
         </li>
         <li class="tab">
-          <a class="cyan-text text-lighten-2" href="#task5"></a>
+          <a class="active cyan-text text-lighten-2" href="#task5"></a>
         </li>
         <li class="tab">
           <a class="cyan-text text-lighten-2" href="#task6"></a>
@@ -40,7 +40,7 @@
           <a class="cyan-text text-lighten-2" href="#task7"></a>
         </li>
       </ul>
-      <div id="task1" class="col s9">
+      <div id="task1" class="col s10">
         <h2 class="center-align">Implement validation for form</h2>
         <div class="valign-wrapper">
           <form name="login" action="#">
@@ -65,29 +65,24 @@
           </form>
         </div>
       </div>
-      <div id="task2" class="col s9">
+      <div id="task2" class="col s10">
         <h2 class="center-align">Fix parallax</h2>
-        <div class="wrapper">
-          <div class="col s8 offset-s2">
-            <iframe width="100%" height="300" src="https://jsfiddle.net/rostik_moroziuk/g2wkha1u/72/embedded/js,html,css,result/dark/"
-              allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-          </div>
+        <div class="col s8 offset-s2">
+          <iframe width="100%" height="300" src="https://jsfiddle.net/rostik_moroziuk/g2wkha1u/72/embedded/js,html,css,result/dark/"
+            allowfullscreen="allowfullscreen" frameborder="0"></iframe>
         </div>
       </div>
-      <div id="task3" class="col s9">
+      <div id="task3" class="col s10">
         <h2 class="center-align">Show message per user's system</h2>
-        <div class="wrapper">
-          <div class="col s8 offset-s2">
-            <iframe width="100%" height="300" src="https://jsfiddle.net/rostik_moroziuk/snsyLb3a/56/embedded/js,html,css,result/dark/"
-              allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-          </div>
+        <div class="col s8 offset-s2">
+          <iframe width="100%" height="300" src="https://jsfiddle.net/rostik_moroziuk/snsyLb3a/56/embedded/js,html,css,result/dark/"
+            allowfullscreen="allowfullscreen" frameborder="0"></iframe>
         </div>
       </div>
-      <div id="task4" class="col s9">
+      <div id="task4" class="col s10">
         <h2 class="center-align">Create multi-local app</h2>
         <div class="center-align">
           <div id="languages">
-            <!--TODO: add id-->
             <input type="radio" name="lang" id="ua" class="check-language">
             <label for="ua">UA</label>
             <input type="radio" name="lang" id="ru" class="check-language">
@@ -101,13 +96,14 @@
             --><span class="lang lang-ru">Привет</span>
             <!--
             --><span class="lang lang-en">Hello</span>
+            <span class="user"></span>
             <span class="lang lang-ua">Раді тебе бачити!</span>
           </div>
           <div class="row">
             <div class="input-field col s4 offset-s4">
               <select id="savePlace">
-                <option value="cookie">cookie</option>
                 <option value="localStorage">localStorage</option>
+                <option value="cookie">cookie</option>
               </select>
               <label>Where is saved current language</label>
             </div>
@@ -118,13 +114,20 @@
         </div>
       </div>
 
-      <div id="task5" class="col s9">
+      <div id="task5" class="col s10">
         <h2 class="center-align">What is difference between event.stopPropagation and event.preventDefault</h2>
+        <div class="col s8 offset-s2">
+          <iframe width="100%" height="300" src="https://jsfiddle.net/rostik_moroziuk/hkL7380z/14/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen"
+            frameborder="0"></iframe>
+          <p class="text">stopPropagation() method prevents further propagation of an event during event flow. It means that this method
+            prevent capturing or bubbling. Execute only first event in stack of events.
+          </p>
+        </div>
       </div>
-      <div id="task6" class="col s9">
+      <div id="task6" class="col s10">
         <h2 class="center-align">Fix the player navigation</h2>
       </div>
-      <div id="task7" class="col s9">
+      <div id="task7" class="col s10">
         <h2 class="center-align">Create the dynamic list of employees on the factory</h2>
       </div>
     </div>
