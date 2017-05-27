@@ -20,8 +20,7 @@ function addEvent() {
   }
 
   //select language after loading page
-  //TODO: enable it!!!
-  // addEventListener("load", selectLanguage);
+   addEventListener("load", selectLanguage);
   //Change language on change radio button
   var languages = document.querySelectorAll("input[name='lang']");
   for (i = 0; i < languages.length; i++) {
@@ -223,7 +222,6 @@ function selectLanguage() {
 
   //If user did not store language data, then get current data of system else data will return in variable
   currentLang = restoreLanguage(); //return stored language or empty string if data would not be saved
-  console.log("current language " + currentLang);
   if (!currentLang) {
     currentLang = getCurrentLanguage();
   } else {
@@ -332,8 +330,6 @@ function playerMove(e) {
     case KEYCODE_SPACE:
       var fire = document.createElement("div");
       fire.className = "fire";
-      console.log("top " + player.style.top);
-      console.log("left " + player.style.left);
       fire.style.top = player.style.top;
       fire.style.left = player.style.left;
       this.appendChild(fire);
