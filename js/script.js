@@ -417,10 +417,9 @@ function addEmployee() {
 }
 
 function addNewEmployee() {
+  var SALARY_LIMIT = 2000;
+
   //if employee will be more than limit
-  console.log("addNew");
-  console.log(document.querySelector(".employeeList").childElementCount - 1);
-  console.log(document.getElementById("limit").value);
   if ((document.querySelector(".employeeList").childElementCount - 1) == document.getElementById("limit").value) {
     alert("Limit!!!");
     return;
@@ -476,8 +475,15 @@ function addNewEmployee() {
   document.querySelector(".newEmployee").style.display = "none"; //input fields
   document.querySelector(".addEmployee").style.display = "block";
 
-  emploeeNumber();
   avarageSalary();
+
+  if(parseInt(document.querySelector(".avarageSalary .value").innerText, 10) > SALARY_LIMIT) {
+    document.querySelector(".employeeList").removeChild(item);
+    avarageSalary();
+    alert("Limit on salary!!!");
+  }
+
+  emploeeNumber();
 }
 
 addEvent();
