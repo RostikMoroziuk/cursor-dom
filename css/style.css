@@ -133,8 +133,13 @@ a:hover.cyan-text.text-lighten-2 {
 }
 
 .listItem span,
-.caption span {
+.caption span,
+.newEmployee input {
   flex-basis: 24%;
+}
+
+.listItem span,
+.caption span {
   padding: 20px 0;
 }
 
@@ -163,7 +168,16 @@ a:hover.cyan-text.text-lighten-2 {
   font-size: 1.2em;
 }
 
-/*.range-field input {
-  width: 70%;
-}*/
+.newEmployee {
+  display: none;
+  justify-content: space-between;
+}
+
+.newEmployee input {
+  text-align: center;
+}
+
+.addNewEmployee {
+  display: none;
+}
 

@@ -31,7 +31,10 @@ function addEvent() {
   document.querySelector("form").onsubmit = validateAll; //select first form
   document.getElementById("save").addEventListener("click", saveLang);
   document.getElementById("start-game").addEventListener("click", playerNavigation); //task 6
-  document.getElementById("play-ground").addEventListener("keydown", playerMove);;
+  document.getElementById("play-ground").addEventListener("keydown", playerMove);
+  document.querySelector("#limit").addEventListener("change", setLimit); //task7
+  document.querySelector(".addEmployee").addEventListener("click", addEmployee);
+  document.querySelector(".addNewEmployee").addEventListener("click", addNewEmployee); //add employee to list
 }
 
 //change focus on play-ground
@@ -387,16 +390,79 @@ function fireControl(el, timer) {
 
 function emploeeNumber() {
   var count = document.querySelector(".employeeList").childElementCount;
-  document.querySelector(".number .value").innerText = count - 1;//first element - caption
+  document.querySelector(".number .value").innerText = count - 1; //first element - caption
 }
 
 function avarageSalary() {
   var salaries = document.querySelectorAll(".employeeSalary");
   var salarySum = 0;
-  for(var i=0; i<salaries.length; i++) {
+  for (var i = 0; i < salaries.length; i++) {
     salarySum += parseInt(salaries[i].innerText.slice(2), 10);
   }
-  document.querySelector(".avarageSalary .value").innerText = salarySum/(salaries.length) + "$";
+  document.querySelector(".avarageSalary .value").innerText = salarySum / (salaries.length) + "$";
+}
+
+function setLimit() {
+  console.log("setLimit");
+  var value = document.getElementById("limit").value;
+  document.querySelector(".range-field .value").innerText = value;
+}
+
+function addEmployee() {
+  document.querySelector(".newEmployee").style.display = "flex";
+  this.style.display = "none";
+  document.querySelector(".addNewEmployee").style.display = "block";
+}
+
+function addNewEmployee() {
+  var firstName = document.querySelector(".newEmployee input[name=firstName]").value;
+  var lastName = document.querySelector(".newEmployee input[name=lastName]").value;
+  var salary = document.querySelector(".newEmployee input[name=salary]").value;
+  var position = document.querySelector(".newEmployee input[name=position]").value;
+
+  console.log(firstName);
+
+  if (!/^[A-Za-z]+$/.test(firstName)) { //name field validation
+    alert("Not correct name, try again");
+    return;
+  }
+  if (!/^[A-Za-z]+$/.test(lastName)) { //surname field validation
+    alert("Not correct surname, try again");
+    return;
+  }
+  if (!/^[A-Za-z]+$/.test(position)) { //position field validation
+    alert("Not correct position, try again");
+    return;
+  }
+  //field salary validate automaticly
+
+  //if validation was success create new list element
+  var item = document.createElement("li");
+  item.className = "listItem";
+
+  //create fields
+  var itemName = document.createElement("span");
+  itemName.className = "employeeFirstName";
+  itemName.innerText = firstName;
+
+  var itemSurname = document.createElement("span");
+  itemSurname.className = "employeeLastName";
+  itemSurname.innerText = lastName;
+
+  var itemSalary = document.createElement("span");
+  itemSalary.className = "employeeSalary";
+  itemSalary.innerText = "$ " + salary;
+
+  var itemPosition = document.createElement("span");
+  itemPosition.className = "employeePosition";
+  itemPosition.innerText = position;
+
+  item.appendChild(itemName);
+  item.appendChild(itemSurname);
+  item.appendChild(itemSalary);
+  item.appendChild(itemPosition);
+
+  document.querySelector(".employeeList").appendChild(item);
 }
 
 addEvent();
