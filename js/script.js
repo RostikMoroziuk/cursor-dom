@@ -399,13 +399,15 @@ function avarageSalary() {
   for (var i = 0; i < salaries.length; i++) {
     salarySum += parseInt(salaries[i].innerText.slice(2), 10);
   }
-  document.querySelector(".avarageSalary .value").innerText = salarySum / (salaries.length) + "$";
+  document.querySelector(".avarageSalary .value").innerText = (salarySum / (salaries.length)).toFixed(3) + "$";
 }
 
 function setLimit() {
-  console.log("setLimit");
   var value = document.getElementById("limit").value;
+  var count = document.querySelector(".employeeList").childElementCount - 1;
+  value = (value <= count) ? count : value;
   document.querySelector(".range-field .value").innerText = value;
+  document.getElementById("limit").value = value;
 }
 
 function addEmployee() {
@@ -415,12 +417,19 @@ function addEmployee() {
 }
 
 function addNewEmployee() {
+  //if employee will be more than limit
+  console.log("addNew");
+  console.log(document.querySelector(".employeeList").childElementCount - 1);
+  console.log(document.getElementById("limit").value);
+  if ((document.querySelector(".employeeList").childElementCount - 1) == document.getElementById("limit").value) {
+    alert("Limit!!!");
+    return;
+  }
+
   var firstName = document.querySelector(".newEmployee input[name=firstName]").value;
   var lastName = document.querySelector(".newEmployee input[name=lastName]").value;
   var salary = document.querySelector(".newEmployee input[name=salary]").value;
   var position = document.querySelector(".newEmployee input[name=position]").value;
-
-  console.log(firstName);
 
   if (!/^[A-Za-z]+$/.test(firstName)) { //name field validation
     alert("Not correct name, try again");
@@ -463,6 +472,12 @@ function addNewEmployee() {
   item.appendChild(itemPosition);
 
   document.querySelector(".employeeList").appendChild(item);
+  document.querySelector(".addNewEmployee").style.display = "none"; //button add
+  document.querySelector(".newEmployee").style.display = "none"; //input fields
+  document.querySelector(".addEmployee").style.display = "block";
+
+  emploeeNumber();
+  avarageSalary();
 }
 
 addEvent();
