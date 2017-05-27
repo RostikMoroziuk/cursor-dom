@@ -442,6 +442,11 @@ function addNewEmployee() {
     alert("Not correct position, try again");
     return;
   }
+
+  if(!checkDublicate(firstName, lastName)) {
+    alert("Employee exist");
+    return;
+  }
   //field salary validate automaticly
 
   //if validation was success create new list element
@@ -471,19 +476,35 @@ function addNewEmployee() {
   item.appendChild(itemPosition);
 
   document.querySelector(".employeeList").appendChild(item);
-  document.querySelector(".addNewEmployee").style.display = "none"; //button add
-  document.querySelector(".newEmployee").style.display = "none"; //input fields
-  document.querySelector(".addEmployee").style.display = "block";
 
   avarageSalary();
 
-  if(parseInt(document.querySelector(".avarageSalary .value").innerText, 10) > SALARY_LIMIT) {
-    document.querySelector(".employeeList").removeChild(item);
-    avarageSalary();
+  if (parseInt(document.querySelector(".avarageSalary .value").innerText, 10) > SALARY_LIMIT) {
     alert("Limit on salary!!!");
+    //disable button
+    document.querySelector(".addEmployee").classList.add("disabled");
   }
 
   emploeeNumber();
+
+  document.querySelector(".addNewEmployee").style.display = "none"; //button add
+  document.querySelector(".newEmployee").style.display = "none"; //input fields
+  document.querySelector(".addEmployee").style.display = "block";
+}
+
+function checkDublicate(fName, lName) {
+  //get all names. Number of names and surnames are equal
+  var names = document.getElementsByClassName("employeeFirstName");
+  var surnames = document.getElementsByClassName("employeeLastName");
+  var i;
+
+  for(i=0; i<names.length; i++) {
+    if(names[i].innerText === fName && surnames[i].innerText === lName) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 addEvent();

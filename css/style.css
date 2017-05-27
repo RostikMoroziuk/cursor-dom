@@ -160,6 +160,7 @@ a:hover.cyan-text.text-lighten-2 {
 
 .addEmployee {
   flex-basis: 35%;
+  overflow: hidden;
 }
 
 .control {
