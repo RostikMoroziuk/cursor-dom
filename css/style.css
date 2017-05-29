@@ -42,6 +42,10 @@ a:hover.cyan-text.text-lighten-2 {
   color: #006064 !important;
 }
 
+form[name="login"] {
+  margin: 0 auto;
+}
+
 #task1,
 #task2,
 #task3,

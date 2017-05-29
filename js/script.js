@@ -180,10 +180,7 @@
       //get current language and transform to common form
       var curLanguage = navigator.language.toLowerCase();
       //identify current language
-      if (curLanguage.indexOf("en") >= 0) {
-        curLanguage = "en";
-        applyLanguage(curLanguage);
-      } else if (curLanguage.indexOf("ua") >= 0) {
+      if (curLanguage.indexOf("ua") >= 0) {
         curLanguage = "ua";
         applyLanguage(curLanguage);
       } else if (curLanguage.indexOf("ru") >= 0) {
