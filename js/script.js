@@ -191,7 +191,8 @@
         applyLanguage(curLanguage);
       } else {
         curLanguage = "en";
-        applyLanguage("Language is undefine. Seted default language (en)");
+        //FIXED!!!! Not touch again!!!
+        applyLanguage(curLanguage);
       }
       return curLanguage;
     }
