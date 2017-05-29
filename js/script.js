@@ -435,6 +435,10 @@
       alert("Not correct surname, try again");
       return;
     }
+    if (!/^\d+$/.test(salary)) { //salary field validation
+      alert("Not correct salary, try again");
+      return;
+    }
     if (!/^[A-Za-z]+$/.test(position)) { //position field validation
       alert("Not correct position, try again");
       return;

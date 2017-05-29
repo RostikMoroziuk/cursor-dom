@@ -19,7 +19,7 @@
     <div class="row valign-wrapper">
       <ul id="task-list" class="tabs col s2">
         <li class="tab">
-          <a class="cyan-text text-lighten-2" href="#task1"></a>
+          <a class="active cyan-text text-lighten-2" href="#task1"></a>
         </li>
         <li class="tab">
           <a class="cyan-text text-lighten-2" href="#task2"></a>
@@ -40,7 +40,7 @@
           <a class="cyan-text text-lighten-2" href="#task6"></a>
         </li>
         <li class="tab">
-          <a class="active cyan-text text-lighten-2" href="#task7"></a>
+          <a class="cyan-text text-lighten-2" href="#task7"></a>
         </li>
       </ul>
       <div id="task1" class="col s10">
@@ -78,8 +78,8 @@
       <div id="task3" class="col s10">
         <h2 class="center-align">Show message per user's system</h2>
         <div class="col s8 offset-s2">
-          <iframe width="100%" height="300" src="https://jsfiddle.net/rostik_moroziuk/snsyLb3a/56/embedded/js,html,css,result/dark/"
-            allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+          <iframe width="100%" height="300" src="https://jsfiddle.net/rostik_moroziuk/snsyLb3a/59/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen"
+            frameborder="0"></iframe>
         </div>
       </div>
       <div id="task4" class="col s10">
@@ -169,7 +169,7 @@
           <div class="newEmployee">
             <input type="text" value="Rostik" name="firstName" required>
             <input type="text" value="Moroziuk" name="lastName" required>
-            <input type="number" value="0" name="salary" required>
+            <input type="number" value="0" min="0" name="salary" required>
             <input type="text" value="trainee" name="position" required>
           </div>
           <div class="listControl">
@@ -178,7 +178,7 @@
             <div class="control">
               <div class="number">Number: <span class="value"></span></div>
               <div class="avarageSalary">Avarage salary: <span class="value"></span></div>
-              <p class="range-field">Set limit: <span class="value">10</span><input type="range" id="limit" min="1" max="100" value="10"/>
+              <p class="range-field">Set limit: <span class="value">10</span><input type="range" id="limit" min="1" max="100" value="10" />
               </p>
             </div>
           </div>
